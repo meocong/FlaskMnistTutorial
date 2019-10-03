@@ -5,3 +5,4 @@ numpy
 flask
 flask-cors
 gunicorn
+flask-restplus
