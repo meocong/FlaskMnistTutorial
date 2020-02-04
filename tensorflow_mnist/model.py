@@ -17,9 +17,10 @@ class Tf_Mnist:
         self.X = graph.get_tensor_by_name('conv2d/input/X:0')
         self.output = graph.get_tensor_by_name('conv2d/output/predict:0')
 
+        self.sess = tf.Session(graph=self.graph)
+
     def predict(self, X):
-        with tf.Session(graph=self.graph) as sess:
-            pd = sess.run(self.output, feed_dict={self.X: X})
+        pd = self.sess.run(self.output, feed_dict={self.X: X})
 
         return pd
 
