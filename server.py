@@ -45,7 +45,7 @@ def tf_predict():
                 # indicate that the request was a success
                 data["success"] = True
             except Exception as ex:
-                data['error'] = ex
+                data['error'] = str(ex)
                 print(str(ex))
         else:
             image = request.form.get("image", None)
@@ -69,7 +69,7 @@ def tf_predict():
                     # indicate that the request was a success
                     data["success"] = True
                 except Exception as ex:
-                    data['error'] = ex
+                    data['error'] = str(ex)
                     print(str(ex))
 
     data['run_time'] = "%.2f" % (time.time() - start_time)
